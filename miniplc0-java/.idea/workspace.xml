@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5feadbc-02b1-4e0a-b337-12b50b70d0d2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miniplc0java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miniplc0java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miniplc0java/analyser/Analyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miniplc0java/analyser/Analyser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +150,7 @@
       <workItem from="1607085116015" duration="30267000" />
       <workItem from="1607168246543" duration="45992000" />
       <workItem from="1607328358617" duration="11743000" />
-      <workItem from="1607358441385" duration="1655000" />
+      <workItem from="1607358441385" duration="1938000" />
     </task>
     <servers />
   </component>

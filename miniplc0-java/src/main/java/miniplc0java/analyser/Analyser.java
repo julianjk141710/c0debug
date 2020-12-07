@@ -1167,12 +1167,19 @@ public final class Analyser {
         expect(TokenType.IF_KW);
 
         compareFlag = 1;
-        expect(TokenType.L_PAREN);
+
+        if (check(TokenType.L_PAREN)) {
+            expect(TokenType.L_PAREN);
+        }
+
 
 
         int tmpNumOfInstructions = analyseConditionStatement(level);
 
-        expect(TokenType.R_PAREN);
+        if (check(TokenType.R_PAREN)) {
+            expect(TokenType.R_PAREN);
+        }
+
         compareFlag = 0;
 
         NavmInstruction firstBrInstruction = addBrInstruction(0);
@@ -1281,14 +1288,21 @@ public final class Analyser {
         addBrInstruction(0);
         numOfInstructions ++;
 
-        expect(TokenType.L_PAREN);
+        if (check(TokenType.L_PAREN)) {
+            expect(TokenType.L_PAREN);
+        }
+
         compareFlag = 1;
         int numOfConditionInstructions = 0;
         numOfConditionInstructions = analyseConditionStatement(level);
 
         numOfInstructions += numOfConditionInstructions;
         compareFlag = 0;
-        expect(TokenType.R_PAREN);
+
+        if (check(TokenType.R_PAREN)) {
+            expect(TokenType.R_PAREN);
+        }
+
 
         NavmInstruction firstBrInstruction = addBrInstruction(0);
         numOfInstructions ++;
