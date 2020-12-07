@@ -639,7 +639,7 @@ public final class Analyser {
 
                 int offset = globalStack.getGlobalStackOffset(String.valueOf(ident.getValue()));
                 if (libraryFlag == 0) {
-                    addCallInstruction(offset);
+                    addCallInstruction(offset + 1);
                     numOfInstructions ++;
                 } else if (libraryFlag == 1) {
                     addCallnameInstruction(offset);
@@ -1654,15 +1654,19 @@ public final class Analyser {
         }
         functionDef.addStartInstruction(offset, stackAllocParam);
 
-        functionDef.printInstructions();
+        //functionDef.printInstructions();
 
         if (!hasMainFunction()) {
             throw new AnalyzeError(NeedMainFunction);
         }
         //System.out.println(globalStack.globalStack);
         //System.out.println();
-        this.oZero.outputOzero();
+        //this.oZero.outputOzero();
         this.oZero.o0OutputToFile();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(this.globalStack.globalStack);
     }
 
     /**

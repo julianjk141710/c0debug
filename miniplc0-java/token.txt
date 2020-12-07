@@ -1,21 +1,11 @@
-fn fib(x: int) -> int {
-    if (x<=1) {
-        return 1;
-    }
-    let result: int = fib(x - 1);
-    result = result + fib(x - 2);
-    return result;
-}
+fn foo() -> int {return 1;}
+fn fun() -> void {}
+fn main() -> void {
+    fun();
+    putln();
+    putln();
 
-fn main() -> int {
-    let i: int = 0;
-    let j: int;
-    j = getint();
-    while (i < j) {
-        putint(i);
-        putint(fib(i));
-        putln();
-        i = i + 1;
-    }
-    return 0;
+    foo();
+
+    return;
 }
