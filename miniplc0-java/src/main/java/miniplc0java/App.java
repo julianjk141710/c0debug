@@ -22,6 +22,10 @@ import net.sourceforge.argparse4j.inf.ArgumentParserException;
 import net.sourceforge.argparse4j.inf.Namespace;
 
 public class App {
+
+    public static String inputFilePath;
+    public static String outputFilePath;
+
     public static void main(String[] args) throws CompileError {
         var argparse = buildArgparse();
         Namespace result;
@@ -34,6 +38,9 @@ public class App {
 
         var inputFileName = result.getString("input");
         var outputFileName = result.getString("output");
+
+        inputFilePath = inputFileName;
+        outputFilePath = outputFileName;
 
         InputStream input;
         if (inputFileName.equals("-")) {

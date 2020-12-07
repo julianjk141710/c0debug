@@ -1,5 +1,6 @@
 package miniplc0java.navm;
 
+import miniplc0java.App;
 import miniplc0java.analyser.Function;
 import org.checkerframework.checker.units.qual.A;
 
@@ -38,7 +39,7 @@ public class OZero {
     }
 
     public void outputOzero() throws IOException {
-        File file = new File("/Users/apple/Documents/MyCompiler/miniplc0-java/o0.txt");
+        File file = new File("o0.txt");
         FileOutputStream fileOutputStream = new FileOutputStream(file);
         DataOutputStream dataOutputStream = new DataOutputStream(fileOutputStream);
 
@@ -82,7 +83,7 @@ public class OZero {
     }
 
     public void o0OutputToFile () throws IOException {
-        File file = new File("/Users/apple/Documents/MyCompiler/miniplc0-java/binary_o0.txt");
+        File file = new File(App.outputFilePath);
         FileOutputStream fileOutputStream = new FileOutputStream(file);
         DataOutputStream dataOutputStream = new DataOutputStream(fileOutputStream);
 

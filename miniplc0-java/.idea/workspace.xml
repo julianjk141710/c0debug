@@ -57,6 +57,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -70,7 +71,7 @@
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="miniplc0java.App" />
       <module name="miniplc0java.main" />
-      <option name="PROGRAM_PARAMETERS" value="-l -o output.txt $USER_HOME$/desktop/token.txt" />
+      <option name="PROGRAM_PARAMETERS" value="-l -o output.txt token.txt" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="miniplc0java.*" />
@@ -150,7 +151,7 @@
       <workItem from="1607085116015" duration="30267000" />
       <workItem from="1607168246543" duration="45992000" />
       <workItem from="1607328358617" duration="11743000" />
-      <workItem from="1607358441385" duration="648000" />
+      <workItem from="1607358441385" duration="1115000" />
     </task>
     <servers />
   </component>
@@ -170,10 +171,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="223" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1606402286847" />
-    <state x="157" y="96" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607359015160">
+    <state x="157" y="96" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607359791964">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="157" y="96" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1607359015160" />
+    <state x="157" y="96" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1607359791964" />
     <state x="157" y="96" key="#com.intellij.execution.impl.EditConfigurationsDialog/1440.0.1112.834/0.0.1440.900@0.0.1440.900" timestamp="1603264021722" />
     <state x="533" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1607333872132">
       <screen x="0" y="0" width="1440" height="900" />
@@ -191,34 +192,34 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="275" y="51" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1607359140304" />
-    <state width="1398" height="321" key="GridCell.Tab.0.bottom" timestamp="1607356206955">
+    <state width="1398" height="321" key="GridCell.Tab.0.bottom" timestamp="1607359660749">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="321" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607356206955" />
+    <state width="1398" height="321" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607359660749" />
     <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.23.1440.793@0.23.1440.793" timestamp="1607038925734" />
     <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1607223804939" />
     <state width="1142" height="272" key="GridCell.Tab.0.bottom/0.23.1440.800@0.23.1440.800" timestamp="1603173540647" />
     <state width="882" height="303" key="GridCell.Tab.0.bottom/1440.0.1112.834/0.0.1440.900@0.0.1440.900" timestamp="1603267646423" />
-    <state width="1398" height="321" key="GridCell.Tab.0.center" timestamp="1607356206953">
+    <state width="1398" height="321" key="GridCell.Tab.0.center" timestamp="1607359660747">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="321" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607356206953" />
+    <state width="1398" height="321" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607359660747" />
     <state width="1398" height="303" key="GridCell.Tab.0.center/0.23.1440.793@0.23.1440.793" timestamp="1607038925732" />
     <state width="1398" height="303" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1607223804938" />
     <state width="1142" height="272" key="GridCell.Tab.0.center/0.23.1440.800@0.23.1440.800" timestamp="1603173540646" />
     <state width="882" height="303" key="GridCell.Tab.0.center/1440.0.1112.834/0.0.1440.900@0.0.1440.900" timestamp="1603267646421" />
-    <state width="1398" height="321" key="GridCell.Tab.0.left" timestamp="1607356206952">
+    <state width="1398" height="321" key="GridCell.Tab.0.left" timestamp="1607359660746">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="321" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607356206952" />
+    <state width="1398" height="321" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607359660746" />
     <state width="1398" height="303" key="GridCell.Tab.0.left/0.23.1440.793@0.23.1440.793" timestamp="1607038925732" />
     <state width="1398" height="303" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1607223804937" />
     <state width="1142" height="272" key="GridCell.Tab.0.left/0.23.1440.800@0.23.1440.800" timestamp="1603173540646" />
     <state width="882" height="303" key="GridCell.Tab.0.left/1440.0.1112.834/0.0.1440.900@0.0.1440.900" timestamp="1603267646420" />
-    <state width="1398" height="321" key="GridCell.Tab.0.right" timestamp="1607356206954">
+    <state width="1398" height="321" key="GridCell.Tab.0.right" timestamp="1607359660748">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="321" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607356206954" />
+    <state width="1398" height="321" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607359660748" />
     <state width="1398" height="303" key="GridCell.Tab.0.right/0.23.1440.793@0.23.1440.793" timestamp="1607038925733" />
     <state width="1398" height="303" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1607223805037" />
     <state width="1142" height="272" key="GridCell.Tab.0.right/0.23.1440.800@0.23.1440.800" timestamp="1603173540647" />
@@ -274,7 +275,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/miniplc0java/App.java</url>
-          <line>112</line>
+          <line>119</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
