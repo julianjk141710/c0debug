@@ -62,6 +62,9 @@ public class OZero {
             System.out.println();
         }
 
+        System.out.format("%08x\n", functions.size());
+        System.out.println();
+
         for (FunctionDef functionDef : functions) {
             System.out.format("%08x\n", functionDef.getName());
             System.out.format("%08x\n", functionDef.getReturn_slots());
@@ -111,6 +114,9 @@ public class OZero {
 //            System.out.println();
 //            System.out.println();
         }
+
+        //System.out.format("%08x\n", globals.size());
+        trans32ToByte(functions.size());
 
         for (FunctionDef functionDef : functions) {
             //System.out.format("%08x\n", functionDef.getName());
