@@ -639,7 +639,7 @@ public final class Analyser {
 
                 int offset = globalStack.getGlobalStackOffset(String.valueOf(ident.getValue()));
                 if (libraryFlag == 0) {
-                    addCallInstruction(offset + 1);
+                    addCallInstruction(offset);
                     numOfInstructions ++;
                 } else if (libraryFlag == 1) {
                     addCallnameInstruction(offset);
