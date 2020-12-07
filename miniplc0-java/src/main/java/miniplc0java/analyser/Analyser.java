@@ -1654,7 +1654,7 @@ public final class Analyser {
         }
         functionDef.addStartInstruction(offset, stackAllocParam);
 
-        //functionDef.printInstructions();
+        functionDef.printInstructions();
 
         if (!hasMainFunction()) {
             throw new AnalyzeError(NeedMainFunction);
