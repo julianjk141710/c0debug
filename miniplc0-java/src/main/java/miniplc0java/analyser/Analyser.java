@@ -591,6 +591,11 @@ public final class Analyser {
                 int libraryFlag = 0;
                 int stackAllocParam = 0;
                 if (isLibraryFunction(String.valueOf(ident.getValue()))) {
+                    GlobalDef globalDef = new GlobalDef();
+                    globalDef.setIs_const(0x01);
+                    globalDef.setValue(generateGlobalDefFunctionName(String.valueOf(ident.getValue())));
+                    addGlobalDefToOzero(globalDef);
+
                     addGlobalToStack(String.valueOf(ident.getValue()));
                     libraryFlag = 1;
                 }
@@ -1661,7 +1666,7 @@ public final class Analyser {
         }
         //System.out.println(globalStack.globalStack);
         //System.out.println();
-        //this.oZero.outputOzero();
+        this.oZero.outputOzero();
         this.oZero.o0OutputToFile();
         System.out.println();
         System.out.println();
