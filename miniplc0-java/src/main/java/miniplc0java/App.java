@@ -82,7 +82,7 @@ public class App {
             } catch (Exception e) {
                 // 遇到错误不输出，直接退出
                 System.err.println(e);
-                System.exit(1);
+                System.exit(0);
                 return;
             }
             for (Token token : tokens) {
@@ -114,7 +114,7 @@ public class App {
             } catch (Exception e) {
                 // 遇到错误不输出，直接退出
                 System.err.println(e);
-                System.exit(1);
+                System.exit(0);
                 return;
             }
             for (NavmInstruction instruction : instructions) {
