@@ -98,7 +98,7 @@ public class FunctionDef {
         stackAlloc.setOpcode(stackAlloc.getOpcode(Instructions.stackalloc));
 
         NavmInstruction call = new NavmInstruction();
-        call.setParam(offsetOfMain + 1);
+        call.setParam(offsetOfMain);
         call.setHasParam(true);
         call.setOpcode(call.getOpcode(Instructions.call));
 

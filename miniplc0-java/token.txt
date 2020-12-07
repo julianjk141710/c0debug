@@ -1,11 +1,4 @@
-fn foo() -> int {return 1;}
-fn fun() -> void {}
+
 fn main() -> void {
-    fun();
-    putln();
-    putln();
 
-    foo();
-
-    return;
 }
