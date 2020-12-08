@@ -187,6 +187,7 @@ public class OZero {
     }
 
     public byte getLowest8Bit(int num, int index) {
-        return (byte)((num >> (index * 8)) & 0xff);
+        int tmp = num >> (index * 8);
+        return ((byte)(tmp & 0x000000ff));
     }
 }
