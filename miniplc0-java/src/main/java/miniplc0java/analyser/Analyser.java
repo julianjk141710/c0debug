@@ -47,7 +47,7 @@ public final class Analyser {
     int assignFlag = 0;
     int retFlag = 0;
     int compareFlag = 0;
-
+    int addBrFlag = 0;
 
     /** 当前偷看的 token */
     Token peekedToken = null;
@@ -1244,8 +1244,19 @@ public final class Analyser {
         setBrInstructionParam(firstBrInstruction, numOfBlockInstructions + 1);
 //        addBrInstruction(numOfInstructions + 1);
 
+
+//        NavmInstruction secondBrInstruction = new NavmInstruction();
+//        secondBrInstruction.setOpcode(secondBrInstruction.getOpcode(Instructions.Br));
+//        secondBrInstruction.setHasParam(true);
+//        secondBrInstruction.setParam(0);
+//        if (instructions.get(instructions.size() - 1).getOpcode() != 0x49) {
+//            this.instructions.add(secondBrInstruction);
+//
+//        }
+
         NavmInstruction secondBrInstruction = addBrInstruction(0);
         numOfInstructions ++;
+
         int numOfElseBlockInstructions = 0;
         if (check(TokenType.ELSE_KW)) {
             next();
@@ -1257,6 +1268,7 @@ public final class Analyser {
                 numOfInstructions += numOfElseBlockInstructions;
             }
         }
+
         setBrInstructionParam(secondBrInstruction, numOfElseBlockInstructions);
 
         return numOfInstructions + tmpNumOfInstructions;
@@ -1974,7 +1986,7 @@ public final class Analyser {
     public ArrayList<Integer> generateGlobalVariableList() {
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < 8; i ++) {
-            list.add(0);
+            list.add((int)0);
         }
         return list;
     }

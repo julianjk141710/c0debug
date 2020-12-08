@@ -183,7 +183,8 @@ public class OZero {
     }
 
     public void trans8ToByte(int oneByteNum) {
-        this.byteInstructionsList.add(getLowest8Bit(oneByteNum, 0));
+        //this.byteInstructionsList.add(getLowest8Bit(oneByteNum, 0));
+        byteInstructionsList.add((byte)(oneByteNum & 0xff));
     }
 
     public byte getLowest8Bit(int num, int index) {
