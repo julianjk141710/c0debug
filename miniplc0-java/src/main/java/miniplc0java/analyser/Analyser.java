@@ -468,6 +468,7 @@ public final class Analyser {
                 addAddInstruction();
                 numOfInstructions ++;
             }
+            expressionFlag = 0;
         }
         return numOfInstructions;
 
@@ -626,6 +627,7 @@ public final class Analyser {
                     if (paramFlag == 1) {
                         throw new AnalyzeError(WrongReturnType, ident.getStartPos());
                     }
+
                     addStackAllocInstruction(0);
                     numOfInstructions ++;
                 } else {
