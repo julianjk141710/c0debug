@@ -865,7 +865,7 @@ public final class Analyser {
         + (localSymbolTable.getSizeOfMap() - numOfParam) + " " + numOfParam + " -> " +this.localSymbolTable.getReturnTypeOfFunction()
                 + " {"
         );
-        printInstructions();
+        printInstructions(functionDef);
         System.out.println("}");
         System.out.println();
         clearLocalSymbolTable();
@@ -1982,6 +1982,14 @@ public final class Analyser {
     public void printInstructions() {
         int num = 0;
         for (NavmInstruction navmInstruction : instructions) {
+            System.out.println("    " + num + " : " + navmInstruction);
+            num ++;
+        }
+    }
+
+    public void printInstructions(FunctionDef functionDef) {
+        int num = 0;
+        for (NavmInstruction navmInstruction : functionDef.getBody()) {
             System.out.println("    " + num + " : " + navmInstruction);
             num ++;
         }
