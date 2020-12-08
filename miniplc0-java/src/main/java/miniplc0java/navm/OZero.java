@@ -152,8 +152,10 @@ public class OZero {
                     //System.out.format("%08x", navmInstruction.getParam());
                     if (navmInstruction.getOpcode() == 0x01) {
                         trans64ToByte(navmInstruction.getParam());
+                    } else {
+                        trans32ToByte(navmInstruction.getParam());
                     }
-                    trans32ToByte(navmInstruction.getParam());
+
                 }
                 //System.out.println();
 
