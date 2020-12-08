@@ -33,9 +33,14 @@ public final class Analyser {
     LocalVariableStack localVariableStack;
     ArrayList<NavmInstruction> instructions;
 
+    /** 为了保证call的参数是正确的 设置这2个变量*/
+    HashMap<String, Integer> callParam;
+    int callOffset;
+
     OZero oZero;
     GlobalStack globalStack;
     ParamAndReturnValueStack paramAndReturnValueStack;
+
 
     int expressionFlag = 0;
     int paramFlag = 0;
@@ -69,7 +74,8 @@ public final class Analyser {
         this.functionTable = new FunctionTable();
         this.paramAndReturnValueStack = new ParamAndReturnValueStack();
 
-        addGlobalToStack("_start");
+        this.callOffset = 0;
+        this.callParam = new HashMap<>();
 
         ArrayList<String> arrayList1 = new ArrayList<>();
         arrayList1.add("int");
@@ -642,11 +648,13 @@ public final class Analyser {
 
 
 
-                int offset = globalStack.getGlobalStackOffset(String.valueOf(ident.getValue()));
+
                 if (libraryFlag == 0) {
+                    int offset = this.callParam.get(String.valueOf(ident.getValue()));
                     addCallInstruction(offset);
                     numOfInstructions ++;
                 } else if (libraryFlag == 1) {
+                    int offset = globalStack.getGlobalStackOffset(String.valueOf(ident.getValue()));
                     addCallnameInstruction(offset);
                     numOfInstructions ++;
                 }
@@ -777,11 +785,16 @@ public final class Analyser {
 
         var newFunction = new Function(String.valueOf(functionName.getValue()), numOfParam, typeOfParam, functionReturnType);
         addNewFunction(newFunction);
+
+        /** 保证call指令参数的正确 */
+        this.callOffset ++;
+        this.callParam.put(String.valueOf(functionName.getValue()), callOffset);
+
         this.globalSymbolTable.addGlobalVariable(functionName, new SymbolEntry(true, true, functionReturnType));
-        addGlobalToStack(String.valueOf(functionName.getValue()));
+//        addGlobalToStack(String.valueOf(functionName.getValue()));
 
         analyseBlockStatement(1);
-
+        addGlobalToStack(String.valueOf(functionName.getValue()));
 //        var newFunction = new Function(String.valueOf(functionName.getValue()), numOfParam, typeOfParam, functionReturnType);
 //        addNewFunction(newFunction);
 //        this.globalSymbolTable.addGlobalVariable(functionName, new SymbolEntry(true, true, functionReturnType));
@@ -1625,7 +1638,7 @@ public final class Analyser {
         GlobalDef globalDef = new GlobalDef();
 
         addFunctionDefToOzero(functionDef);
-        addGlobalDefToOzero(globalDef);
+//        addGlobalDefToOzero(globalDef);
         functionDef.setParam_slots(0);
         functionDef.setLoc_slots(0);
         functionDef.setReturn_slots(0);
@@ -1634,9 +1647,9 @@ public final class Analyser {
         functionDef.setBody(this.instructions);
 
 
-
-        globalDef.setIs_const(0x01);
-        globalDef.setValue(generateGlobalDefFunctionName("_start"));
+//        addGlobalDefToOzero(globalDef);
+//        globalDef.setIs_const(0x01);
+//        globalDef.setValue(generateGlobalDefFunctionName("_start"));
 
 
 
@@ -1650,7 +1663,8 @@ public final class Analyser {
             analyseFunction();
         }
 
-        int offset = globalStack.getGlobalStackOffset("main");
+        //int offset = globalStack.getGlobalStackOffset("main");
+        int offset = callParam.get("main");
 
         String mainReturnType = getFunctionReturnType("main");
         int stackAllocParam = 0;
@@ -1664,6 +1678,11 @@ public final class Analyser {
         if (!hasMainFunction()) {
             throw new AnalyzeError(NeedMainFunction);
         }
+
+        addGlobalDefToOzero(globalDef);
+        globalDef.setIs_const(0x01);
+        globalDef.setValue(generateGlobalDefFunctionName("_start"));
+        addGlobalToStack("_start");
         //System.out.println(globalStack.globalStack);
         //System.out.println();
         this.oZero.outputOzero();
