@@ -599,15 +599,15 @@ public final class Analyser {
             } else if (check(TokenType.L_PAREN)) {
                 int libraryFlag = 0;
                 int stackAllocParam = 0;
-                if (isLibraryFunction(String.valueOf(ident.getValue()))) {
-                    GlobalDef globalDef = new GlobalDef();
-                    globalDef.setIs_const(0x01);
-                    globalDef.setValue(generateGlobalDefFunctionName(String.valueOf(ident.getValue())));
-                    addGlobalDefToOzero(globalDef);
-
-                    addGlobalToStack(String.valueOf(ident.getValue()));
-                    libraryFlag = 1;
-                }
+//                if (isLibraryFunction(String.valueOf(ident.getValue()))) {
+//                    GlobalDef globalDef = new GlobalDef();
+//                    globalDef.setIs_const(0x01);
+//                    globalDef.setValue(generateGlobalDefFunctionName(String.valueOf(ident.getValue())));
+//                    addGlobalDefToOzero(globalDef);
+//
+//                    addGlobalToStack(String.valueOf(ident.getValue()));
+//                    libraryFlag = 1;
+//                }
 
                 int numOfParam = 0;
                 if (!searchForFunction(String.valueOf(ident.getValue()))) {
@@ -652,7 +652,15 @@ public final class Analyser {
 
 
 
+                if (isLibraryFunction(String.valueOf(ident.getValue()))) {
+                    GlobalDef globalDef = new GlobalDef();
+                    globalDef.setIs_const(0x01);
+                    globalDef.setValue(generateGlobalDefFunctionName(String.valueOf(ident.getValue())));
+                    addGlobalDefToOzero(globalDef);
 
+                    addGlobalToStack(String.valueOf(ident.getValue()));
+                    libraryFlag = 1;
+                }
                 if (libraryFlag == 0) {
                     int offset = this.callParam.get(String.valueOf(ident.getValue()));
                     addCallInstruction(offset);
@@ -679,15 +687,20 @@ public final class Analyser {
 
 
             Token stringLiteral = next();
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 1; i < String.valueOf(stringLiteral.getValue()).length() - 1; i ++) {
+                stringBuilder.append(String.valueOf(stringLiteral.getValue()).charAt(i));
+            }
+
 
             GlobalDef globalDef = new GlobalDef();
             globalDef.setIs_const(0x01);
-            globalDef.setValue(generateGlobalDefFunctionName(String.valueOf(stringLiteral.getValue())));
+            globalDef.setValue(generateGlobalDefFunctionName(stringBuilder.toString()));
             addGlobalDefToOzero(globalDef);
 
             addGlobalToStack(String.valueOf(stringLiteral.getValue()));
             int stringLiteralOffset = globalStack.getGlobalStackOffset(String.valueOf(stringLiteral.getValue()));
-            addPushInstruction(stringLiteralOffset);
+            addPushInstruction(getGlobalDefIndex());
 
         }
 //        else if (isBinaryOperator()) {
@@ -2055,6 +2068,10 @@ public final class Analyser {
 
     public boolean hasMainFunction() {
         return hasFunction("main");
+    }
+
+    public int getGlobalDefIndex () {
+        return this.oZero.getGlobalDefIndex();
     }
 }
 

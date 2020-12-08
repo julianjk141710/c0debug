@@ -29,6 +29,10 @@ public class OZero {
     public void addGlobalDef(GlobalDef globalDef) {
         this.globals.add(globalDef);
     }
+
+    public int getGlobalDefIndex () {
+        return this.globals.size() - 1;
+    }
     public int getNameOfFunctionDef(FunctionDef functionDef) {
         for (int i = 0; i < functions.size(); i ++) {
             if (functions.get(i) == functionDef) {
@@ -57,6 +61,12 @@ public class OZero {
             System.out.format("%08x\n", globalDef.getValue().size());
             for (Integer integer : globalDef.getValue()) {
                 System.out.format("%d ", integer);
+
+            }
+            System.out.println();
+            for (Integer integer : globalDef.getValue()) {
+                System.out.format("%c ", integer);
+
             }
             System.out.println();
             System.out.println();
