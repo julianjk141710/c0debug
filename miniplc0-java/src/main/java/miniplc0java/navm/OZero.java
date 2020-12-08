@@ -56,7 +56,7 @@ public class OZero {
             System.out.format("%02x\n", globalDef.getIs_const());
             System.out.format("%08x\n", globalDef.getValue().size());
             for (Integer integer : globalDef.getValue()) {
-                System.out.format("%02x ", integer);
+                System.out.format("%d ", integer);
             }
             System.out.println();
             System.out.println();
@@ -66,11 +66,11 @@ public class OZero {
         System.out.println();
 
         for (FunctionDef functionDef : functions) {
-            System.out.format("%08x\n", functionDef.getName());
-            System.out.format("%08x\n", functionDef.getReturn_slots());
-            System.out.format("%08x\n", functionDef.getParam_slots());
-            System.out.format("%08x\n", functionDef.getLoc_slots());
-            System.out.format("%08x\n", functionDef.getBody().size());
+            System.out.format("%d ", functionDef.getName());
+            System.out.format("%d ", functionDef.getReturn_slots());
+            System.out.format("%d ", functionDef.getParam_slots());
+            System.out.format("%d ", functionDef.getLoc_slots());
+            System.out.format("%d\n", functionDef.getBody().size());
 
             for (NavmInstruction navmInstruction : functionDef.getBody()) {
                 System.out.format("%02x ", navmInstruction.getOpcode());

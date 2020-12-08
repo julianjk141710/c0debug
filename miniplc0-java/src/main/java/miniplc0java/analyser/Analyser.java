@@ -676,10 +676,19 @@ public final class Analyser {
             addPushInstruction(Integer.parseInt(String.valueOf(uintLiteral.getValue())));
             numOfInstructions ++;
         } else if (check(TokenType.STRING_LITERAL)) {
+
+
             Token stringLiteral = next();
+
+            GlobalDef globalDef = new GlobalDef();
+            globalDef.setIs_const(0x01);
+            globalDef.setValue(generateGlobalDefFunctionName(String.valueOf(stringLiteral.getValue())));
+            addGlobalDefToOzero(globalDef);
+
             addGlobalToStack(String.valueOf(stringLiteral.getValue()));
             int stringLiteralOffset = globalStack.getGlobalStackOffset(String.valueOf(stringLiteral.getValue()));
             addPushInstruction(stringLiteralOffset);
+
         }
 //        else if (isBinaryOperator()) {
 //            analyseExpression(localSymbolTable);
