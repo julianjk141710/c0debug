@@ -698,7 +698,7 @@ public final class Analyser {
             globalDef.setValue(generateGlobalDefFunctionName(stringBuilder.toString()));
             addGlobalDefToOzero(globalDef);
 
-            addGlobalToStack(String.valueOf(stringLiteral.getValue()));
+            addGlobalToStack(stringBuilder.toString());
             int stringLiteralOffset = globalStack.getGlobalStackOffset(String.valueOf(stringLiteral.getValue()));
             addPushInstruction(getGlobalDefIndex());
 
