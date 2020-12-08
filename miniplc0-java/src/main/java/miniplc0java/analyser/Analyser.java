@@ -849,7 +849,7 @@ public final class Analyser {
         addFunctionDefToOzero(functionDef);
         addGlobalDefToOzero(globalDef);
         functionDef.setParam_slots(numOfParam);
-        functionDef.setLoc_slots(this.localSymbolTable.getNumOflocalVariables());
+        functionDef.setLoc_slots(this.localSymbolTable.getNumOflocalVariables() - numOfParam);
         functionDef.setReturn_slots(this.localSymbolTable.getReturnTypeOfFunction());
         //functionDef.setName(getNameOfFunctionDef(functionDef));
         functionDef.setName(globalStack.getGlobalStackOffset(String.valueOf(functionName.getValue())));
