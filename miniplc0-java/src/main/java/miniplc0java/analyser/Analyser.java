@@ -659,7 +659,7 @@ public final class Analyser {
                     numOfInstructions ++;
                 }
 
-                if (paramFlag == 0 && assignFlag != 1 && compareFlag != 1 && stackAllocParam != 0) {
+                if (paramFlag == 0 && assignFlag != 1 && compareFlag != 1 && stackAllocParam != 0 && retFlag != 1) {
                     addPopNInstruction();
                     numOfInstructions ++;
                 }
