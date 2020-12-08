@@ -85,6 +85,7 @@ public final class Analyser {
         //this.functionTable.addNewFunction(new Function("putstr", 1, arrayList1, "void"));
         this.functionTable.addNewFunction(new Function("putln", 0, null, "void"));
         this.functionTable.addNewFunction(new Function("putstr", 1, null, "void"));
+        this.functionTable.addNewFunction(new Function("putchar", 1, null, "void"));
 
         GlobalSymbolTable globalSymbolTable = new GlobalSymbolTable(0);
         setGlobalSymbolTable(globalSymbolTable);
@@ -92,6 +93,7 @@ public final class Analyser {
         this.globalSymbolTable.addGlobalVariable(new Token(TokenType.IDENT, "putint"), new SymbolEntry(true, true, "void"));
         this.globalSymbolTable.addGlobalVariable(new Token(TokenType.IDENT, "putln"), new SymbolEntry(true, true, "void"));
         this.globalSymbolTable.addGlobalVariable(new Token(TokenType.IDENT, "putstr"), new SymbolEntry(true, true, "void"));
+        this.globalSymbolTable.addGlobalVariable(new Token(TokenType.IDENT, "putchar"), new SymbolEntry(true, true, "void"));
 
         this.oZero = new OZero();
     }
@@ -2032,7 +2034,8 @@ public final class Analyser {
     }
 
     public boolean isLibraryFunction(String functionName) {
-        if (functionName.equals("putint") || functionName.equals("putstr") || functionName.equals("putln") || functionName.equals("getint"))
+        if (functionName.equals("putint") || functionName.equals("putstr") || functionName.equals("putln") || functionName.equals("getint")
+        || functionName.equals("putchar"))
         {
             return true;
         }
