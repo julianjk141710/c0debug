@@ -838,6 +838,11 @@ public final class Analyser {
             retFlag = 0;
         }
 
+        if (this.instructions.size() == 0 ||
+                this.instructions.get(this.instructions.size() - 1).getOpcode() != 0x49) {
+            addReturnInstruction();
+        }
+
         /**
          * 为每个函数创建一个FunctionDef对象 和 GlobalDef对象 初始化各值 然后加入oZero
          */
@@ -1225,6 +1230,9 @@ public final class Analyser {
             expect(TokenType.R_PAREN);
         }
 
+        addBrTrueInstruction(1);
+        numOfInstructions ++;
+
         compareFlag = 0;
 
         NavmInstruction firstBrInstruction = addBrInstruction(0);
@@ -1283,8 +1291,8 @@ public final class Analyser {
                 numOfInstructions ++;
             }
 
-            addBrTrueInstruction(1);
-            numOfInstructions ++;
+//            addBrTrueInstruction(1);
+//            numOfInstructions ++;
         }
         return numOfInstructions;
     }
@@ -1348,6 +1356,8 @@ public final class Analyser {
             expect(TokenType.R_PAREN);
         }
 
+        addBrTrueInstruction(1);
+        numOfInstructions ++;
 
         NavmInstruction firstBrInstruction = addBrInstruction(0);
         numOfInstructions ++;
@@ -1356,6 +1366,7 @@ public final class Analyser {
         numOfBlockInstructions = analyseBlockStatement(level);
         numOfInstructions += numOfBlockInstructions;
         setBrInstructionParam(firstBrInstruction, numOfBlockInstructions + 1);
+
 
         numOfInstructions ++;
         //while 的奇怪跳转
