@@ -820,7 +820,8 @@ public final class Analyser {
         functionDef.setParam_slots(numOfParam);
         functionDef.setLoc_slots(this.localSymbolTable.getNumOflocalVariables());
         functionDef.setReturn_slots(this.localSymbolTable.getReturnTypeOfFunction());
-        functionDef.setName(getNameOfFunctionDef(functionDef));
+        //functionDef.setName(getNameOfFunctionDef(functionDef));
+        functionDef.setName(globalStack.getGlobalStackOffset(String.valueOf(functionName.getValue())));
         functionDef.setBody(this.instructions);
 
         globalDef.setIs_const(0x01);
@@ -1642,7 +1643,7 @@ public final class Analyser {
         functionDef.setParam_slots(0);
         functionDef.setLoc_slots(0);
         functionDef.setReturn_slots(0);
-        functionDef.setName(getNameOfFunctionDef(functionDef));
+        //functionDef.setName(getNameOfFunctionDef(functionDef));
 
         functionDef.setBody(this.instructions);
 
@@ -1683,6 +1684,7 @@ public final class Analyser {
         globalDef.setIs_const(0x01);
         globalDef.setValue(generateGlobalDefFunctionName("_start"));
         addGlobalToStack("_start");
+        functionDef.setName(globalStack.getGlobalStackOffset("_start"));
         //System.out.println(globalStack.globalStack);
         //System.out.println();
         this.oZero.outputOzero();
