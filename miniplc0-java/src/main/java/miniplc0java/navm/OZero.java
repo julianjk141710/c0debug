@@ -140,7 +140,10 @@ public class OZero {
 
                 if (navmInstruction.isHasParam()) {
                     //System.out.format("%08x", navmInstruction.getParam());
-                    trans64ToByte(navmInstruction.getParam());
+                    if (navmInstruction.getOpcode() == 0x01) {
+                        trans64ToByte(navmInstruction.getParam());
+                    }
+                    trans32ToByte(navmInstruction.getParam());
                 }
                 //System.out.println();
 
