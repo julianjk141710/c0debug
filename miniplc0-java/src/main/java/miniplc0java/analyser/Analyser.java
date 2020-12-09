@@ -1487,6 +1487,7 @@ public final class Analyser {
                 GlobalDef globalDef = new GlobalDef();
                 globalDef.setIs_const(0);
                 globalDef.setValue(generateGlobalVariableList());
+
                 addGlobalDefToOzero(globalDef);
                 addGlobalToStack(String.valueOf(token.getValue()));
 

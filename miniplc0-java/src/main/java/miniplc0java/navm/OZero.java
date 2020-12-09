@@ -167,6 +167,9 @@ public class OZero {
             byteInstructions[i] = this.byteInstructionsList.get(i);
         }
         dataOutputStream.write(byteInstructions);
+        System.out.println();
+        System.out.println();
+        System.out.println(byteInstructionsList);
 
     }
 
@@ -177,9 +180,13 @@ public class OZero {
     }
 
     public void trans64ToByte(int eightByteNum) {
-        for (int i = 7; i >= 0; i --) {
+        for (int i = 3; i >= 0; i --) {
+            this.byteInstructionsList.add(getLowest8Bit(0, 0));
+        }
+        for (int i = 3; i >= 0; i --) {
             this.byteInstructionsList.add(getLowest8Bit(eightByteNum, i));
         }
+
     }
 
     public void trans8ToByte(int oneByteNum) {
